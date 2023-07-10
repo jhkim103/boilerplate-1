@@ -13,6 +13,7 @@ npm-debug.log
 
 # parcel
 .cache
+.next
 build-translate.build.js
 bind-translate-key.build.js
 internals/scripts/dist
