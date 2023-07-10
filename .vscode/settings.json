@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": ["Antd", "Carplat", "endindex", "Raidea"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.prettier": true,
+    "source.fixAll.stylelint": true
+  }
+}
