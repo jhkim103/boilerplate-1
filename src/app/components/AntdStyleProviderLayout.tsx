@@ -1,12 +1,9 @@
-'use client';
-
-import Title from './components/Title';
-import { useState } from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
-import { useServerInsertedHTML } from 'next/navigation';
 import 'antd/dist/reset.css';
+import { useServerInsertedHTML } from 'next/navigation';
+import { useState } from 'react';
 
-export default function AndtStyleProviderLayout({
+export default function AntdStyleProviderLayout({
   children,
 }: {
   children: React.ReactNode;

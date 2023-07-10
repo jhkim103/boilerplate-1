@@ -1,15 +1,12 @@
-'use client';
-import Title from './components/Title';
-import { useState } from 'react';
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
-import { useServerInsertedHTML } from 'next/navigation';
 import 'antd/dist/reset.css';
+import Text from './components/Text';
+import Title from './components/Title';
 
 export default function Home() {
   return (
     <div>
       <Title>MSP CS ADMIN</Title>
-      <p>powered by raidea.</p>
+      <Text>powered by raidea.</Text>
     </div>
   );
 }
