@@ -1,5 +1,4 @@
-import { Text, Title } from '@bp1/app/components';
-import Menu from '@bp1/app/layout/menu';
+import { Text, Title } from '@bp1/client/components';
 
 export default function List() {
   return (

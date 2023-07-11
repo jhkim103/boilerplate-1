@@ -1,4 +1,4 @@
-import { Text, Title } from './components';
+import { Text, Title } from '@bp1/client/components';
 export default function Home() {
   let name = 'park';
 
