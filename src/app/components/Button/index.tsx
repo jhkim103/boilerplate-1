@@ -1,8 +1,13 @@
 'use client';
 
 import { Button } from 'antd';
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
+import AntdStyleProviderLayout from '../AntdStyleProvider';
 
 export default function CButton(props: PropsWithChildren) {
-  return <Button>{props.children}</Button>;
+  return (
+    <AntdStyleProviderLayout>
+      <Button style={{ color: 'red' }}>{props.children}</Button>
+    </AntdStyleProviderLayout>
+  );
 }

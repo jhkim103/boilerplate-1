@@ -28,6 +28,7 @@ module.exports = {
         'newlines-between': 'never',
       },
     ],
+    'import/no-extraneous-dependencies': 'off',
   },
   settings: {
     'import/resolver': {
