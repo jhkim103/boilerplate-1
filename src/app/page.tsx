@@ -11,6 +11,7 @@ export default function Home() {
         MSP CS ADMIN
       </Title>
       <Button>MSP CS ADMIN</Button>
+      <Button rdsType="error">MSP CS ADMIN : ERROR</Button>
       <p>powered by raidea.</p>
     </div>
   );
