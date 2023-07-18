@@ -12,13 +12,13 @@ interface IButtonProps extends ButtonProps {
 }
 
 const StyledButton = styled(AButton)<IButtonProps>`
-  height: 60px;
+  height: 60px !important;
 
   ${({ rdsType }) => {
     switch (rdsType) {
       case 'error':
         return `
-          color : red;
+          color : red !important;
         `;
       default:
         return ``;
@@ -28,10 +28,10 @@ const StyledButton = styled(AButton)<IButtonProps>`
 
 export default function Button(props: IButtonProps) {
   return (
-    <AntdStyleProviderLayout>
-      <StyledComponentsRegistry>
+    <StyledComponentsRegistry>
+      <AntdStyleProviderLayout>
         <StyledButton {...props}>{props.children}</StyledButton>
-      </StyledComponentsRegistry>
-    </AntdStyleProviderLayout>
+      </AntdStyleProviderLayout>
+    </StyledComponentsRegistry>
   );
 }
