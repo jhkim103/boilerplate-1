@@ -5,6 +5,6 @@
     "source.fixAll.eslint": true,
     "source.fixAll.prettier": true,
     "source.fixAll.stylelint": true,
-    "source.organizeImports": true
+    // "source.organizeImports": true
   }
 }
