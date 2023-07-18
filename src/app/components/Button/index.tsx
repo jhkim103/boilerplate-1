@@ -1,13 +1,17 @@
 'use client';
 
-import { Button } from 'antd';
-import { PropsWithChildren } from 'react';
+import { Button as AButton, ButtonProps } from 'antd';
+import { ReactNode } from 'react';
 import AntdStyleProviderLayout from '../AntdStyleProvider';
 
-export default function CButton(props: PropsWithChildren) {
+interface IButtonProps extends ButtonProps {
+  children?: ReactNode | string | undefined;
+}
+
+export default function Button(props: IButtonProps) {
   return (
     <AntdStyleProviderLayout>
-      <Button style={{ color: 'red' }}>{props.children}</Button>
+      <AButton>{props.children}</AButton>
     </AntdStyleProviderLayout>
   );
 }

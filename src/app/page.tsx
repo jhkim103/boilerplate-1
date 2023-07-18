@@ -7,6 +7,9 @@ export default function Home() {
   return (
     <div>
       <Title>MSP CS ADMIN</Title>
+      <Title level={3} style={{ color: 'red' }}>
+        MSP CS ADMIN
+      </Title>
       <Button>MSP CS ADMIN</Button>
       <p>powered by raidea.</p>
     </div>
