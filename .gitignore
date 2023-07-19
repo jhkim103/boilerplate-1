@@ -5,6 +5,7 @@ node_modules
 stats.json
 
 .env
+public/antd.min.css
 
 # Cruft
 .DS_Store

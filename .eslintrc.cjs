@@ -16,7 +16,11 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
     'react/destructuring-assignment': [0, 'always'],
+    'react/require-default-props': 'off',
     'import/extensions': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'import/prefer-default-export': 'off',
     'import/order': [
       'error',
       {
