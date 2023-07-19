@@ -1,8 +1,33 @@
 'use client';
 
-import { Button } from 'antd';
-import React, { PropsWithChildren } from 'react';
+import { Button as AButton, ButtonProps } from 'antd';
+import { ReactNode } from 'react';
+import styled from 'styled-components';
+import StyledComponentsRegistry from '@bp1/app/provider/StyledComponentsRegistry';
 
-export default function CButton(props: PropsWithChildren) {
-  return <Button>{props.children}</Button>;
+interface IButtonProps extends ButtonProps {
+  children?: ReactNode | string;
+  rdsType?: 'warning' | 'default';
+}
+
+const StyleButton = styled(AButton)<IButtonProps>`
+  height: 100px;
+  ${({ rdsType }) => {
+    switch (rdsType) {
+      case 'warning':
+        return `
+          color: red;
+        `;
+      default:
+        return ``;
+    }
+  }}
+`;
+
+export default function Button(props: IButtonProps) {
+  return (
+    <StyledComponentsRegistry>
+      <StyleButton {...props}>{props.children}</StyleButton>
+    </StyledComponentsRegistry>
+  );
 }

@@ -1,8 +1,18 @@
 'use client';
 
 import { Typography } from 'antd';
-import { PropsWithChildren } from 'react';
+import { TitleProps } from 'antd/es/typography/Title';
+import { ReactNode } from 'react';
+import StyledComponentsRegistry from '@bp1/app/provider/StyledComponentsRegistry';
 
-export default function Title(props: PropsWithChildren) {
-  return <Typography.Title>{props.children}</Typography.Title>;
+interface ITitleProps extends TitleProps {
+  children?: ReactNode | string;
+}
+
+export default function Title(props: ITitleProps) {
+  return (
+    <StyledComponentsRegistry>
+      <Typography.Title {...props}>{props.children}</Typography.Title>
+    </StyledComponentsRegistry>
+  );
 }
