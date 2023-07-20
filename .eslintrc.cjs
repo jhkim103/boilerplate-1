@@ -1,44 +1,20 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'react-hooks'],
+  plugins: ['@typescript-eslint', 'prettier', 'react', 'react-hook', 'import'],
+  env: {
+    // 전역객체를 eslint가 인식하는 구간
+    browser: true, // document나 window 인식되게 함
+    node: true,
+    es6: true,
+  },
   extends: [
-    'airbnb',
-    'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
+    'next/core-web-vitals', //eslint-config-next
+    'prettier', //eslint-config-prettier
+    'stylelint', //eslint-config-stylelint
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:import/recommended',
   ],
-  rules: {
-    'prettier/prettier': 0,
-    'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
-    'react/react-in-jsx-scope': 'off',
-    'react/jsx-uses-react': 'off',
-    'react/destructuring-assignment': [0, 'always'],
-    'react/require-default-props': 'off',
-    'import/extensions': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'import/no-extraneous-dependencies': 'off',
-    'import/prefer-default-export': 'off',
-    'import/order': [
-      'error',
-      {
-        groups: ['builtin', 'external', 'parent', 'sibling', 'index'],
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
-        },
-        'newlines-between': 'never',
-      },
-    ],
-  },
-  settings: {
-    'import/resolver': {
-      node: {},
-      typescript: {
-        directory: './src',
-      },
-    },
-  },
 };
