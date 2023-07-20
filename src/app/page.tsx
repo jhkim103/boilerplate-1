@@ -10,7 +10,9 @@ export default function Home() {
       <Title level={5}>MSP CS ADMIN</Title>
       <Row gutter={[16, 16]}>
         <Col>
-          <Button type="dashed">test1</Button>
+          <Button rdsType="test" type="dashed">
+            test1
+          </Button>
         </Col>
         <Col>
           <Button type="primary">test1</Button>
