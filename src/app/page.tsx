@@ -1,4 +1,4 @@
-import { Button, Button2, Col, Row, Title } from './components/antd';
+import { Button, Button2, Button3, Col, Row, Title } from './components/antd';
 
 export default function Home() {
   return (
@@ -20,8 +20,11 @@ export default function Home() {
         <Col>
           <Button2 rdsType="test">test2</Button2>
         </Col>
+        <Col>
+          <Button3 rdsType="test">test3</Button3>
+        </Col>
       </Row>
-
+      <p className="text-3xl font-bold underline">Hello, Tailwind</p>
       <p>powered by raidea.</p>
     </div>
   );
