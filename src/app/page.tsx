@@ -17,8 +17,6 @@ export default function Home() {
         <Col>
           <Button type="primary">test1</Button>
         </Col>
-      </Row>
-      <Row>
         <Col>
           <Button>test2</Button>
         </Col>
