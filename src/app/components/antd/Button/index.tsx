@@ -7,9 +7,10 @@ interface IButtonProp extends ButtonProps, React.RefAttributes<HTMLElement> {
 }
 
 export function Button(props: IButtonProp) {
+  const { rdsType } = props;
   const classNames: string[] = [];
-  if (props.rdsType) {
-    classNames.push(styles[props.rdsType]);
+  if (rdsType) {
+    classNames.push(styles[rdsType]);
   }
   return (
     <AButton className={classNames.join(' ')} {...props}>

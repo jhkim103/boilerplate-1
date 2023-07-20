@@ -1,3 +1,10 @@
 .test {
   color: red;
+  &:hover {
+    color: yellow;
+  }
+}
+
+.test2 {
+  color: blue;
 }
