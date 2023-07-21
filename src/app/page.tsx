@@ -23,10 +23,9 @@ export default function Home() {
           <ButtonTWD rdsType="test">antd+tailwind</ButtonTWD>
         </Col>
         <Col>
-          <ButtonVNE rdsType="test">antd+vanilaExt</ButtonVNE>
+          <ButtonVNE rdsType="test">antd+vanillaExt</ButtonVNE>
         </Col>
       </Row>
-      <p className="text-3xl font-bold underline">Tailwind loaded : "Hello, Tailwind</p>
       <p>powered by raidea.</p>
     </div>
   );

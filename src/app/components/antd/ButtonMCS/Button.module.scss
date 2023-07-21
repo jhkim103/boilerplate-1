@@ -1,8 +1,7 @@
 .test {
   color: red;
-  padding: 10px 50px 10px 30px;
   &:hover {
-    color: yellow;
+    color: yellow !important;
   }
 }
 

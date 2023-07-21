@@ -11,6 +11,7 @@ export function ButtonTWD(props: IButtonProp) {
   const classNames: string[] = [];
   if (rdsType === 'test') {
     classNames.push('text-red-500');
+    classNames.push('underline');
   }
   return (
     <>

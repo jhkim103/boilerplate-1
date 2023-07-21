@@ -13,9 +13,8 @@ const StyleButton = styled(AButton)<IButtonProp>`
     if (rdsType === 'test') {
       return css`
         color: red;
-        padding: 10px 50px 20px 30px;
         &:hover {
-          color: yellow;
+          color: yellow !important;
         }
       `;
     }
