@@ -1,7 +1,8 @@
 {
-  "plugin": ["stylelint-scss"],
+  "plugins": ["stylelint-scss", "stylelint-order"],
   "extends": ["stylelint-config-prettier-scss", "stylelint-config-recommended-scss"],
   "rules": {
-    "at-rule-no-unknown": null
+    "order/order": ["custom-properties", "declarations"],
+    "order/properties-order": ["width", "height"]
   }
 }
