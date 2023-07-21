@@ -1,4 +1,4 @@
-import { Button, Col, Row, Title } from './components/antd';
+import { Button, Col, Row, Title } from '../components/antd';
 
 export default function Home() {
   return (
