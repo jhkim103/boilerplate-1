@@ -1,30 +1,29 @@
-import { Button, Button2, Button3, Col, Row, Title } from './components/antd';
+import { Button, ButtonMCS, ButtonSTD, ButtonTWD, Col, Row, Title } from './components/antd';
 
 export default function Home() {
   return (
     <div>
       <Title level={1}>MSP CS ADMIN</Title>
-      <Title level={2}>MSP CS ADMIN</Title>
-      <Title level={3}>MSP CS ADMIN</Title>
-      <Title level={4}>MSP CS ADMIN</Title>
-      <Title level={5}>MSP CS ADMIN</Title>
-      <Row gutter={[16, 16]}>
-        <Col>
-          <Button type="primary">test1</Button>
+      <Row gutter={[16, 16]} style={{ padding: '100px' }}>
+        <Col span={24}>
+          <Title level={5}>{`Button style : {color:red} / :hover{color:yellow}`}</Title>
         </Col>
         <Col>
-          <Button rdsType="test" type="dashed">
-            test1
-          </Button>
+          <Button type="primary">antd</Button>
         </Col>
         <Col>
-          <Button2 rdsType="test">test2</Button2>
+          <ButtonMCS rdsType="test" type="dashed">
+            antd+module.css
+          </ButtonMCS>
         </Col>
         <Col>
-          <Button3 rdsType="test">test3</Button3>
+          <ButtonSTD rdsType="test">antd+styled</ButtonSTD>
+        </Col>
+        <Col>
+          <ButtonTWD rdsType="test">antd+tailwind</ButtonTWD>
         </Col>
       </Row>
-      <p className="text-3xl font-bold underline">Hello, Tailwind</p>
+      <p className="text-3xl font-bold underline">Tailwind loaded : "Hello, Tailwind</p>
       <p>powered by raidea.</p>
     </div>
   );

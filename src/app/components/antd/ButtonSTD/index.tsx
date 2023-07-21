@@ -13,6 +13,7 @@ const StyleButton = styled(AButton)<IButtonProp>`
     if (rdsType === 'test') {
       return css`
         color: red;
+        padding: 10px 50px 20px 30px;
         &:hover {
           color: yellow;
         }
@@ -21,7 +22,7 @@ const StyleButton = styled(AButton)<IButtonProp>`
   }}
 `;
 
-export function Button2(props: IButtonProp) {
+export function ButtonSTD(props: IButtonProp) {
   return (
     <StyledComponentsRegistry>
       <StyleButton {...props}>{props.children}</StyleButton>
