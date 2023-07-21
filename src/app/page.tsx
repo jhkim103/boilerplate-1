@@ -1,4 +1,4 @@
-import { Button, ButtonMCS, ButtonSTD, ButtonTWD, Col, Row, Title } from './components/antd';
+import { Button, ButtonMCS, ButtonSTD, ButtonTWD, ButtonVNE, Col, Row, Title } from './components/antd';
 
 export default function Home() {
   return (
@@ -21,6 +21,9 @@ export default function Home() {
         </Col>
         <Col>
           <ButtonTWD rdsType="test">antd+tailwind</ButtonTWD>
+        </Col>
+        <Col>
+          <ButtonVNE rdsType="test">antd+vanilaExt</ButtonVNE>
         </Col>
       </Row>
       <p className="text-3xl font-bold underline">Tailwind loaded : "Hello, Tailwind</p>
