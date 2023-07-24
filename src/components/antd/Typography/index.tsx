@@ -8,4 +8,5 @@ interface ITypographyProps extends TypographyProps, React.RefAttributes<HTMLElem
 export function Typography(props: ITypographyProps) {
   return <ATypography {...props} />;
 }
-Typography.Title = Title;
+// Typography.Title = Title;
+export { Title as TypographyTitle };

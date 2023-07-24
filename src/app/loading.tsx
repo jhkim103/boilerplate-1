@@ -1,11 +1,11 @@
 'use client';
 
-import { Typography } from '../components/antd';
+import { TypographyTitle, Row } from '../components/antd';
 
 export default function Home() {
   return (
-    <div>
-      <Typography.Title level={5}>Loding...</Typography.Title>
-    </div>
+    <Row>
+      <TypographyTitle level={5}>Loding...</TypographyTitle>
+    </Row>
   );
 }

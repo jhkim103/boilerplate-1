@@ -8,4 +8,5 @@ interface IInputProps extends InputProps {}
 export function Input(props: IInputProps) {
   return <AInput {...props} />;
 }
-Input.Password = Password;
+// Input.Password = Password;
+export { Password as InputPassword };
