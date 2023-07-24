@@ -4,3 +4,4 @@ export { Space } from './Space';
 export { Row } from './Row';
 export { Input, InputPassword } from './Input';
 export { Typography, TypographyTitle } from './Typography';
+export { Layout, LayoutContent } from './Layout';
