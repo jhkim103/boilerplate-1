@@ -1,3 +1,3 @@
 export default function dashboard() {
-  return <div>dashboard</div>;
+  return <div style={{ minHeight: '800px' }}>dashboard</div>;
 }

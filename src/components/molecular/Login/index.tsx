@@ -1,6 +1,19 @@
+'use client';
+
 import { Row, Col, Button, TypographyTitle, Input, InputPassword } from '@bp1/components/antd';
 
+import { store } from '@bp1/store';
+import { setLoginResult } from '@bp1/store/loginSlice';
+import { useRouter } from 'next/navigation';
+import { MouseEvent } from 'react';
+
 export default function Login() {
+  const route = useRouter();
+  function handleOnclick(e: MouseEvent<HTMLElement>) {
+    store.dispatch(setLoginResult(true));
+    route.refresh();
+  }
+
   return (
     <Row justify={'center'} align={'middle'} style={{ height: '100%' }}>
       <Col span={6}>
@@ -15,7 +28,9 @@ export default function Login() {
             <InputPassword placeholder="password" />
           </Col>
           <Col span={24} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button type="primary">login</Button>
+            <Button type="primary" onClick={(e) => handleOnclick(e)}>
+              login
+            </Button>
           </Col>
         </Row>
       </Col>

@@ -1,13 +1,15 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import Login from '@bp1/components/molecular/Login';
+import { store } from '@bp1/store';
+import { redirect } from 'next/navigation';
 
 export default function Home() {
-  const isLogin = false;
-  const route = useRouter();
+  const isLogin = store.getState().login.result;
+  console.log(isLogin);
   if (isLogin) {
-    route.push('/dashboard');
+    redirect('/dashboard');
   } else {
-    route.push('/login');
+    return <Login />;
   }
 }
