@@ -16,7 +16,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="en">
       <body className={inter.className}>
         <ContextProvider>{props.children}</ContextProvider>
-        <p>powered by raidea.</p>
       </body>
     </html>
   );
