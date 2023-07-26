@@ -15,7 +15,9 @@ export default function Login() {
             <InputPassword placeholder="password" />
           </Col>
           <Col span={24} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button type="primary">login</Button>
+            <Button rdsType={'test'} type="primary">
+              login
+            </Button>
           </Col>
         </Row>
       </Col>
