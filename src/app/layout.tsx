@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import 'antd/dist/reset.css';
 import '../../public/antd.min.css';
+import AuthCheckLayout from '@bp1/components/layout/AuthCheckLayout';
+import AuthSessionProvider from '@bp1/components/layout/AuthSessionProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,7 +16,11 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{props.children}</body>
+      <body className={inter.className}>
+        <AuthSessionProvider>
+          <AuthCheckLayout>{props.children}</AuthCheckLayout>
+        </AuthSessionProvider>
+      </body>
     </html>
   );
 }
