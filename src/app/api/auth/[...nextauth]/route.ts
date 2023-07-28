@@ -6,12 +6,15 @@ import GoogleProvider from 'next-auth/providers/google';
 const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
   const providers = [
     CredentialsProvider({
+      id: 'email-password-credential',
       name: 'Credentials',
       credentials: {
         username: { label: 'Username', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, req) {
+        console.log('credentials');
+        console.log(credentials);
         const user = { id: '00001' };
         if (user) {
           return user;
@@ -42,6 +45,7 @@ const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
     async redirect({ url, baseUrl }: Record<string, any>) {
       console.log('redirect');
       console.log(baseUrl);
+      console.log(url);
       return baseUrl;
     },
     async session({ session, user, token }: Record<string, any>) {
@@ -53,12 +57,16 @@ const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
       return token;
     },
   };
+  const pages = {
+    signIn: '/login',
+  };
 
   return await NextAuth(req, res, {
     providers,
-    secret: '1222333',
     logger,
     callbacks,
+    pages,
+    secret: 'ddd',
   });
 };
 export { handler as GET, handler as POST };
