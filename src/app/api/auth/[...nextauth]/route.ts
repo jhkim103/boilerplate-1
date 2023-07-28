@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import GoogleProvider from 'next-auth/providers/google';
 
 const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
   const providers = [
@@ -13,11 +12,12 @@ const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, req) {
-        console.log('credentials');
-        console.log(credentials);
-        const user = { id: '00001' };
-        if (user) {
-          return user;
+        const result = { username: credentials?.username, role: '' };
+        if (result.username === 'superuser') {
+          result.role = 'superuser';
+        }
+        if (result) {
+          return result as any;
         } else {
           return null;
         }
@@ -39,21 +39,23 @@ const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
 
   const callbacks = {
     async signIn({ user, account, profile, email, credentials }: Record<string, any>) {
-      console.log('signIn');
       return true;
     },
     async redirect({ url, baseUrl }: Record<string, any>) {
-      console.log('redirect');
-      console.log(baseUrl);
-      console.log(url);
       return baseUrl;
     },
     async session({ session, user, token }: Record<string, any>) {
-      console.log('session');
+      if (token) {
+        session.user.username = token.username;
+        session.user.role = token.role;
+      }
       return session;
     },
     async jwt({ token, user, account, profile, isNewUser }: Record<string, any>) {
-      console.log('jwt');
+      if (user) {
+        token.username = user.username;
+        token.role = user.role;
+      }
       return token;
     },
   };
@@ -71,6 +73,9 @@ const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
     callbacks,
     pages,
     secret: 'ddd',
+    session: {
+      strategy: 'jwt',
+    },
   });
 };
 export { handler as GET, handler as POST };

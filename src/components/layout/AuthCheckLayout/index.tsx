@@ -4,20 +4,19 @@ import { useSession } from 'next-auth/react';
 import { redirect, usePathname } from 'next/navigation';
 import DefaultLayout from '../DefaultLayout';
 
-const DEFAULT_LOGIN_URL = '/login';
+const DEFAULT_LOGIN_URL = '/auth/login';
 
 export default function AuthCheckLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const { data: session, status } = useSession();
-
-  if (status === 'unauthenticated' && pathname !== '/auth/login') {
-    redirect('/auth/login');
-  }
+  const { status } = useSession();
 
   if (status === 'loading') {
     return <Loading />;
   }
-  if (status === 'authenticated') {
+  if (status === 'unauthenticated' && pathname !== DEFAULT_LOGIN_URL) {
+    redirect(DEFAULT_LOGIN_URL);
+  }
+  if (status === 'authenticated' && pathname !== DEFAULT_LOGIN_URL) {
     return <DefaultLayout>{children}</DefaultLayout>;
   }
 

@@ -1,6 +1,6 @@
 import { Col, Row } from '@bp1/components/antd';
-import Header from '../Header';
-import LeftMenu from '../LeftMenu';
+import Header from '@bp1/components/molecular/Header';
+import LeftMenu from '@bp1/components/molecular/LeftMenu';
 
 export default function DefaultLayout({ children }: { children: React.ReactNode }) {
   return (
