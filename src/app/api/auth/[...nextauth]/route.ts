@@ -1,6 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import { TMenuData, buildPageRouteByRole } from './role';
+
+export type TAuthInfo = {
+  username?: string;
+  role: string;
+  route?: { menu: TMenuData[]; enabled: string[] };
+};
 
 const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
   const providers = [
@@ -12,10 +19,16 @@ const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, req) {
-        const result = { username: credentials?.username, role: '' };
+        const result: TAuthInfo = {
+          username: credentials?.username,
+          role: '',
+        };
         if (result.username === 'superuser') {
           result.role = 'superuser';
         }
+
+        const routeData = buildPageRouteByRole({ role: result.role });
+        result.route = routeData;
         if (result) {
           return result as any;
         } else {
@@ -24,18 +37,6 @@ const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
       },
     }),
   ];
-
-  const logger = {
-    error(code: any, metadata: any) {
-      console.error(code, metadata);
-    },
-    warn(code: any) {
-      console.warn(code);
-    },
-    debug(code: any, metadata: any) {
-      console.debug(code, metadata);
-    },
-  };
 
   const callbacks = {
     async signIn({ user, account, profile, email, credentials }: Record<string, any>) {
@@ -48,6 +49,7 @@ const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
       if (token) {
         session.user.username = token.username;
         session.user.role = token.role;
+        session.user.route = token.route;
       }
       return session;
     },
@@ -55,6 +57,7 @@ const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
       if (user) {
         token.username = user.username;
         token.role = user.role;
+        token.route = user.route;
       }
       return token;
     },
@@ -66,13 +69,24 @@ const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
     verifyRequest: '/auth/verify-request', // (used for check email message)
     newUser: '/auth/new-user', // New users will be directed here on first sign in (leave the property out if not of interest)
   };
+  const logger = {
+    error(code: any, metadata: any) {
+      console.error(code, metadata);
+    },
+    warn(code: any) {
+      console.warn(code);
+    },
+    debug(code: any, metadata: any) {
+      console.debug(code, metadata);
+    },
+  };
 
   return await NextAuth(req, res, {
     providers,
     logger,
     callbacks,
     pages,
-    secret: 'ddd',
+    secret: 'SEC@ET',
     session: {
       strategy: 'jwt',
     },

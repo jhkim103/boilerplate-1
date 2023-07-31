@@ -2,15 +2,11 @@ import { Row } from '@bp1/components/antd';
 import style from './leftmenu.module.scss';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
-import { TMenuData, buildMenuData } from '@bp1/app/api/auth/router';
+import { TMenuData } from '@bp1/app/api/auth/[...nextauth]/role';
 
 export default function LeftMenu() {
   const { data } = useSession();
-  let menuData: TMenuData[] = [];
-  if (data) {
-    const role = (data?.user as any).role ?? '';
-    menuData = buildMenuData({ role });
-  }
+  const menuData = (data?.user as any).route.menu ?? [];
   return (
     <div className={style.menu}>
       {menuData.map((data: TMenuData) => {
