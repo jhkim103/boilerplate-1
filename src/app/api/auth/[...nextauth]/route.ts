@@ -1,12 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { TMenuData, buildPageRouteByRole } from './role';
+import { TRouteData, buildRouteDataByRole } from './role';
 
 export type TAuthInfo = {
   username?: string;
   role: string;
-  route?: { menu: TMenuData[]; enabled: string[] };
+  route?: TRouteData;
 };
 
 const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
@@ -27,7 +27,7 @@ const handler = async function auth(req: NextApiRequest, res: NextApiResponse) {
           result.role = 'superuser';
         }
 
-        const routeData = buildPageRouteByRole({ role: result.role });
+        const routeData = buildRouteDataByRole({ role: result.role });
         result.route = routeData;
         if (result) {
           return result as any;

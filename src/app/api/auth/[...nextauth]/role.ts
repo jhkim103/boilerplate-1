@@ -1,4 +1,4 @@
-export type TbuildMenuData = {
+export type buildRouteDataByRoleProps = {
   role: string;
 };
 
@@ -12,7 +12,7 @@ export type TRouteData = {
   enabled: string[];
 };
 
-export function buildPageRouteByRole({ role }: TbuildMenuData) {
+export function buildRouteDataByRole({ role }: buildRouteDataByRoleProps) {
   const baseRoute: TRouteData = {
     menu: [],
     enabled: [],
