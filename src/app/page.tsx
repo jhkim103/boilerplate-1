@@ -1,13 +1,5 @@
-'use client';
-
-import { useRouter } from 'next/navigation';
+import Redirect from '@bp1/components/molecular/Redirect';
 
 export default function Home() {
-  const isLogin = false;
-  const route = useRouter();
-  if (isLogin) {
-    route.push('/dashboard');
-  } else {
-    route.push('/login');
-  }
+  return <Redirect url={'/dashboard'} />;
 }
